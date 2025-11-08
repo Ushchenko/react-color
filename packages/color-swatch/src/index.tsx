@@ -51,6 +51,8 @@ const Swatch = React.forwardRef<HTMLDivElement, SwatchProps>((props, ref) => {
     transition: '.15s ease-in-out',
     ...rectProps.style,
   } as CSS.Properties<string | number>;
+
+  //TODO: add variability to hover effect
   const swatchBtn = useRef<HTMLDivElement>(null);
   const handleMouseEnter = useCallback((evn: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     evn.currentTarget.style.transform = 'scale(1.2)';
@@ -59,7 +61,6 @@ const Swatch = React.forwardRef<HTMLDivElement, SwatchProps>((props, ref) => {
     evn.currentTarget.style.transform = 'scale(1)';
   }, []);
   const handleClick = (hex: string, evn: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    // console.log(evn.currentTarget.tagName)
     onChange && onChange(hexToHsva(hex), handleColor(hexToHsva(hex)), evn);
   };
   return (
